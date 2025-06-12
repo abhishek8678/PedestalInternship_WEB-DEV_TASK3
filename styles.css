@@ -2,8 +2,8 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
-    background-attachment: fixed;
+    background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,14 +11,31 @@ body {
 }
 
 body.dark-mode {
-    background: linear-gradient(135deg, #2a2a72, #1a1a1a);
+    background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg') no-repeat center center fixed, linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-size: cover;
     color: #ffffff;
 }
 
+#toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    transition: transform 0.2s ease;
+    z-index: 1001;
+}
+
+#toggle-theme:hover {
+    transform: scale(1.2);
+}
+
 .dashboard {
-    background: rgba(255, 255, 255, 0.95);
+    background: transparent;
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 700px;
     width: 100%;
@@ -26,12 +43,16 @@ body.dark-mode {
     position: relative;
 }
 
-body.dark-mode .dashboard {
-    background: rgba(40, 40, 40, 0.95);
-}
-
 .container {
     padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .container {
+    background: rgba(40, 40, 40, 0.3);
 }
 
 .progress-bar {
@@ -71,6 +92,7 @@ body.dark-mode .dashboard {
     justify-content: center;
     margin-bottom: 8px;
     font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .step.active .step-number {
@@ -82,6 +104,11 @@ body.dark-mode .dashboard {
     font-size: 0.85em;
     color: #666;
     font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .step-label {
+    color: #bbb;
 }
 
 .step.active .step-label {
@@ -110,11 +137,13 @@ label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #333;
+    color: #1a1a1a;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 body.dark-mode label {
-    color: #ddd;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 input, textarea {
@@ -125,6 +154,14 @@ input, textarea {
     border-radius: 8px;
     font-size: 1em;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-color: #555;
 }
 
 input:focus, textarea:focus {
@@ -143,12 +180,18 @@ textarea {
     display: block;
     margin-top: 8px;
     font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .char-count {
     font-size: 0.9em;
     color: #666;
     font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .char-count {
+    color: #bbb;
 }
 
 .strength-meter {
@@ -171,6 +214,7 @@ textarea {
     font-size: 0.9em;
     margin-top: 4px;
     display: block;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #preview {
@@ -194,6 +238,7 @@ textarea {
     font-size: 0.9em;
     cursor: pointer;
     transition: background 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .skill-tag:hover {
@@ -216,6 +261,7 @@ button {
     font-size: 1em;
     font-weight: 500;
     transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 button:hover {
@@ -255,6 +301,11 @@ body.dark-mode .success-content {
     color: #fff;
 }
 
+.success-content h2,
+.success-content p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 .checkmark {
     display: inline-block;
     font-size: 3em;
@@ -288,6 +339,11 @@ body.dark-mode .success-content {
         width: 80px;
     }
     .step-label {
-        font-size: 0.75em;
-     }
- }
+        font-size: 0.75em;
+    }
+    #toggle-theme {
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em;
+    }
+}
